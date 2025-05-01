@@ -1,13 +1,21 @@
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../google maps/models/autocomplete_model.dart';
 import '../../google maps/models/place details/place_details_model/place_details_model.dart';
 
 class GoogleMapsPlacesService {
   final String baseUrl = "https://maps.googleapis.com/maps/api/place";
-  final String apiKey = "AIzaSyDPmT35b1IZKZ4knXxlx7Gc9TmpApfkoh4"; // Replace with a secure method to store API keys
+  late final String apiKey;
+
+  GoogleMapsPlacesService() {
+    apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
+    if (apiKey.isEmpty) {
+      throw Exception('Google Maps API key not found in environment variables');
+    }
+  }
 
   Future<List<AutocompleteModel>> getAutocomplete({required String input, required String sessionToken}) async {
     try {

@@ -15,6 +15,8 @@ import 'logic/products_cubits/products_cubit.dart';
 import 'logic/stores_cubits/store_cubit.dart';
 import 'providers/theme_provider.dart';
 import 'providers/language_provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 void main() async {
   try {
@@ -23,6 +25,7 @@ void main() async {
 
     // Initialize Firebase using the service
     await FirebaseService.initialize();
+    await dotenv.load();
 
     // Continue with app setup even if Firebase initialization had issues
     setupGetIt();

@@ -1,12 +1,19 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../google maps/models/routes models/Locationinfomodel.dart';
 import '../../google maps/models/routes_model.dart';
 
-
 class RoutesService {
   final String baseUrl = "https://routes.googleapis.com/directions/v2:computeRoutes";
-  final String apiKey = "AIzaSyDPmT35b1IZKZ4knXxlx7Gc9TmpApfkoh4";
+  late final String apiKey;
+
+  RoutesService() {
+    apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
+    if (apiKey.isEmpty) {
+      throw Exception('Google Maps API key not found in environment variables');
+    }
+  }
 
   Future<RoutesModel> fetchRoutes({required Locationinfomodel origin, required Locationinfomodel destination}) async {
     Uri url = Uri.parse(baseUrl);
