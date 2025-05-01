@@ -1,0 +1,925 @@
+{
+  "profile": {
+    "title": "Profile",
+    "account": "Account",
+    "profileSettings": "Profile Settings",
+    "profileInfo": "Profile Information",
+    "myOrders": "My Orders",
+    "addressManagement": "Address Management",
+    "becomeSeller": "Become a Seller",
+    "changeLanguage": "Change Language",
+    "aboutAndSupport": "About & Support",
+    "helpCenter": "Help Center",
+    "aboutApp": "About App",
+    "followUs": "Follow Us",
+    "logout": "Logout",
+    "logoutConfirmation": "Confirm Logout",
+    "logoutMessage": "Are you sure you want to logout?",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "logoutSuccess": "Successfully logged out",
+    "profileInfoTitle": "Profile Information",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "accountType": "Account Type",
+    "imageUpdateSuccess": "Image updated successfully",
+    "imageUpdateError": "Error updating image",
+    "cannotOpenLink": "Cannot open link",
+    "loadingError": "Failed to load data"
+  },
+  "editProfile": {
+    "title": "Edit Profile",
+    "name": "Name",
+    "nameHint": "Please enter your name",
+    "phone": "Phone Number",
+    "phoneHint": "Please enter your phone number",
+    "saveChanges": "Save Changes",
+    "deleteAccount": "Delete Account",
+    "deleteAccountConfirmation": "Confirm Account Deletion",
+    "deleteAccountMessage": "This action cannot be undone. All your data will be permanently deleted.",
+    "confirmEmail": "Enter your email to confirm",
+    "confirmDelete": "Confirm Delete",
+    "deleteSuccess": "Account deleted successfully",
+    "deleteError": "Error deleting account",
+    "wrongEmail": "Incorrect email",
+    "updateSuccess": "Data updated successfully",
+    "updateError": "Error updating data"
+  },
+  "myOrders": {
+    "title": "My Orders",
+    "loadingError": "Error loading orders",
+    "noOrders": "No orders at the moment",
+    "store": "Store",
+    "orderDetails": "Order Details",
+    "quantity": "Quantity",
+    "price": "Price",
+    "productsTotal": "Products Total",
+    "deliveryFee": "Delivery Fee",
+    "serviceFee": "Service Fee",
+    "finalTotal": "Final Total",
+    "deliveryInfo": "Delivery Information",
+    "phoneNumber": "Phone Number",
+    "address": "Address",
+    "addressDetails": "Address Details"
+  },
+  "aboutApp": {
+    "title": "About App",
+    "appDescription": {
+      "title": "About Mahallat App",
+      "content": "Mahallat is an app that allows you to choose products from your favorite stores, and our drivers will deliver these products to your location faster than you expect"
+    },
+    "importantNotices": {
+      "title": "Important Notices",
+      "content": "We would like to inform you that if the product is inspected and you wish to return it, a delivery fee will be charged. Thank you for your understanding and cooperation.\n\n- Please note that the sizes displayed in the app match the commonly used sizes in the local market.\n\n- If you would like to add your store to our app, please fill in the required information in the 'Become a Seller' section on the Account page.\n\n- If you are interested in becoming one of Mahalat’s delivery captains, please enter your phone number in the Help section, and we will contact you immediately.\n\nAbout Mahalat App:\nMahalat is an app that allows you to choose products from your favorite local stores, and our drivers will deliver them to your location faster than you expect."
+    },
+    "becomeSeller": {
+      "title": "Become a Seller",
+      "content": "If you want to add your store to our app, please fill out the required information in the \"Become a Seller\" section in the account page."
+    },
+    "becomeDriver": {
+      "title": "Become a Driver",
+      "content": "If you want to become one of Mahallat's captains, please enter your phone number in the help section and we will contact you immediately."
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "content": "For more details, please submit a help request and we will contact you immediately."
+    }
+  },
+  "addressManagement": {
+    "title": "Address Management",
+    "noAddress": "No saved address",
+    "addNewAddress": "Add New Address",
+    "edit": "Edit",
+    "delete": "Delete",
+    "selectLocation": "Please select your location",
+    "saveSuccess": "Location saved successfully",
+    "saveError": "Error saving location",
+    "enterAddress": "Enter your address",
+    "saveAddress": "Save Address",
+    "deleteSuccess": "Address deleted successfully",
+    "deleteError": "Error deleting address",
+    "unexpectedError": "An unexpected error occurred"
+  },
+  "tager": {
+    "title": "Merchant Registration",
+    "phone": "Phone Number",
+    "phoneHint": "Please enter your phone number",
+    "name": "Name",
+    "nameHint": "Please enter your name",
+    "address": "Address",
+    "edit": "Edit",
+    "delete": "Delete",
+    "selectCategories": "Select Categories",
+    "send": "Send",
+    "success": "Data sent successfully. We will contact you soon",
+    "error": "An error occurred",
+    "selectCategory": "Please select at least one category",
+    "addAddress": "Please add an address",
+    "deleteSuccess": "Location deleted successfully",
+    "deleteError": "Error deleting location",
+    "unexpectedError": "An unexpected error occurred",
+    "categories": {
+      "mensClothing": "Men's Clothing",
+      "womensClothing": "Women's Clothing",
+      "kidsClothing": "Kids' Clothing",
+      "mensShoes": "Men's Shoes",
+      "womensShoes": "Women's Shoes",
+      "kidsShoes": "Kids' Shoes",
+      "bags": "Bags",
+      "healthCare": "Health & Care"
+    }
+  },
+  "shakawy": {
+    "title": "Submit Help Request",
+    "phone": "Phone Number",
+    "phoneHint": "Please enter your phone number",
+    "phoneInvalid": "Invalid phone number",
+    "requestType": "Request Type",
+    "requestTypeHint": "Please select request type",
+    "requestDescription": "Request Description",
+    "requestDescriptionHint": "Please enter request description",
+    "send": "Submit Help Request",
+    "success": "Help request submitted successfully. We will contact you soon",
+    "error": "Error submitting help request",
+    "loginRequired": "Please login first",
+    "requestTypes": {
+      "orders": "Orders",
+      "becomeCaptain": "Become a Captain",
+      "becomeSeller": "Become a Seller",
+      "other": "Other"
+    }
+  },
+  "home": {
+    "arabic": "العربية",
+    "english": "English",
+    "selectLanguage" : "Select Language",
+    "welcome": "Welcome",
+    "welcomeUser": "Welcome {username}",
+    "searchHint": "Search here...",
+    "categories": "Categories",
+    "stores": "Stores",
+    "products": "Products",
+    "noResults": "No results found",
+    "viewDetails": "View Details",
+    "addToCart": "Add to Cart",
+    "storeName": "Store Name",
+    "selectCategoryFirst": "Please select a category first",
+    "size": "Size",
+    "price": "JOD",
+    "color": "Color",
+    "description": "Description",
+    "pressAgainToExit": "Press again to exit",
+    "categoriesList": {
+      "mensClothing": "Men's Clothing",
+      "womensClothing": "Women's Clothing",
+      "kidsClothing": "Kids' Clothing",
+      "mensShoes": "Men's Shoes",
+      "womensShoes": "Women's Shoes",
+      "kidsShoes": "Kids' Shoes",
+      "bags": "Bags",
+      "healthAndBeauty": "Health & Beauty"
+    },
+    "navigation": {
+      "home": "Home",
+      "profile": "Profile",
+      "about": "policies"
+    },
+    "screen": {
+      "loading": "Loading...",
+      "error": "Error loading video"
+    },
+    "categoriesList": {
+      "mensClothing": "Men Clothing",
+      "womensClothing": "Women Clothing",
+      "kidsClothing": "Kids Clothing",
+      "mensShoes": "Men Shoes",
+      "womensShoes": "Women Shoes",
+      "kidsShoes": "Kids Shoes",
+      "bags": "Bags",
+      "healthAndBeauty": "Health & Beauty"
+    }
+  },
+  "bags": {
+    "title": "Stores",
+    "شنط ظهر": "Backpacks",
+    "شنط نسائية عصرية": "Women's Bags",
+    "شنط سفر": "Travel Bags",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "noProducts": "No products available"
+  },
+  "healthAndCare": {
+    "title": "Stores",
+    "العناية بالجسم": "Body Care",
+    "العناية بالشعر": "Hair Care",
+    "العناية بالبشرة": "Skin Care",
+    "مكياج": "Makeup",
+    "عطور": "Perfumes",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "errorLoading": "An error occurred",
+    "loading": "Loading...",
+    "categories": {
+      "bodyCare": "Body Care",
+      "hairCare": "Hair Care",
+      "skinCare": "Skin Care",
+      "makeup": "Makeup",
+      "perfumes": "Perfumes",
+      "other": "Other"
+    }
+  },
+  "kidsClothes": {
+    "title": "Stores",
+    "جينز": "Jeans",
+    "تيشيرت": "T-Shirts",
+    "قمصان": "Shirts",
+    "بدلات": "Suits",
+    "بيجامات": "Pajamas",
+    "جاكيت": "Jackets",
+    "شورت": "Shorts",
+    "فساتين": "Dresses",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "errorLoading": "An error occurred",
+    "loading": "Loading..."
+  },
+  "kidsShoes": {
+    "title": "Stores",
+    "أحذية أطفال": "Kids Shoes",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "errorLoading": "An error occurred",
+    "loading": "Loading..."
+  },
+  "menClothes": {
+    "title": "Stores",
+    "بناطيل جينز": "Jeans",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "subCategories": {
+      "Straight": "Straight",
+      "Slim Fit": "Slim Fit",
+      "Boyfriend": "Boyfriend",
+      "Tapered": "Tapered",
+      "Cropped": "Cropped",
+      "Baggy": "Baggy",
+      "Skinny": "Skinny",
+      "Round Neck": "Round Neck",
+      "V-Neck": "V-Neck",
+      "Polo": "Polo",
+      "Henley": "Henley",
+      "Hoodie": "Hoodie",
+      "High Neck": "High Neck",
+      "Wool Sweater": "Wool Sweater",
+      "Cotton Sweater": "Cotton Sweater"
+    },
+    "بناطيل قماش": "Cotton Pants",
+    "بناطيل كارغو": "Cargo Pants",
+    "رياضة": "Sports",
+    "قمصان": "Shirts",
+    "تيشيرتات وبلايز": "T-Shirts & Blouses",
+    "جاكيتات": "Jackets",
+    "بليزر": "Blazers",
+    "بدلات": "Suits",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "errorLoading": "An error occurred",
+    "loading": "Loading..."
+  },
+  "menShoes": {
+    "title": "Stores",
+    "أحذية رياضية": "Sports Shoes",
+    "أحذية رسمية": "Formal Shoes",
+    "أحذية كاجوال": "Casual Shoes",
+    "بوت": "Boots",
+    "أخرى": "Other",
+    "noProducts": "No products available",
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "no": "No",
+    "yes": "Yes",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "store": "Store",
+    "price": "JOD",
+    "errorLoading": "An error occurred",
+    "loading": "Loading..."
+  },
+  "productDetails": {
+    "addToCart": "Add to Cart",
+    "pleaseLogin": "Please login first",
+    "addedToCart": "Product added to cart successfully",
+    "error": "An error occurred. Please try again",
+    "price": "JOD",
+    "stock": "Stock",
+    "quantity": "Quantity",
+    "description": "Description",
+    "size": "Size",
+    "color": "Color",
+    "selectSize": "Select Size",
+    "selectColor": "Select Color",
+    "addToCartSuccess": "Added to cart successfully",
+    "addToCartError": "Error adding to cart",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to proceed?",
+    "yes": "Yes",
+    "no": "No",
+    "alert": "Alert"
+  },
+  "womenClothes": {
+    "title": "Stores",
+    "فساتين": "Dresses",
+    "جلابيب": "Jilbabs",
+    "جينز": "Jeans",
+    "رياضة": "Sports Wear",
+    "كاجوال": "Casual Wear",
+    "تيشيرت": "T-Shirts",
+    "لانجري": "Lingerie",
+    "أخرى": "Other",
+    "loading": "Loading...",
+    "errorLoading": "Error loading products",
+    "noProducts": "No products available",
+    "price": "JOD",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to continue?",
+    "yes": "Yes",
+    "no": "No",
+    "addedToCart": "Added to cart",
+    "error": "An error occurred. Please try again",
+    "pleaseLogin": "Please login first"
+  },
+  "womenShoes": {
+    "title": "Stores",
+    "أحذية كاجوال": "Casual Shoes",
+    "أحذية بكعب": "Heels",
+    "صنادل": "Sandals",
+    "بوت": "Boots",
+    "أخرى": "Other",
+    "loading": "Loading...",
+    "errorLoading": "Error loading products",
+    "noProducts": "No products available",
+    "price": "JOD",
+    "alert": "Alert",
+    "clearCartMessage": "You have items in your cart from another store. Adding this item will clear your previous items. Do you want to continue?",
+    "yes": "Yes",
+    "no": "No",
+    "addedToCart": "Added to cart",
+    "error": "An error occurred. Please try again",
+    "pleaseLogin": "Please login first"
+  },
+  "cart": {
+    "title": "Cart",
+    "pleaseLogin": "Please login to view your cart",
+    "error": "An error occurred",
+    "empty": "Cart is empty",
+    "price": "JOD",
+    "total": "Total",
+    "totalPrice": "Total:",
+    "completeOrder": "Complete Order",
+    "productDeleted": "Product removed from cart",
+    "quantity": "Quantity"
+  },
+  "orderCompletion": {
+    "title": "Complete Order",
+    "store": "Store",
+    "sizeDetailsHint": "Please enter product details such as color, size, or both. If these details are not available, please write \"None.\"",
+    "sizeDetails": "Size Details",
+    "phone": "Phone Number",
+    "phoneHint": "Please enter your phone number",
+    "phoneInvalid": "Invalid phone number",
+    "addressInfo": "Address Information",
+    "addressInfoHint": "Example: 2nd floor, next to grocery store, apartment 5",
+    "address": "Address",
+    "addAddress": "Add Address",
+    "changeAddress": "Change Address",
+    "noAddress": "No address",
+    "productsPrice": "Products Price",
+    "deliveryFee": "Delivery Fee",
+    "serviceFee": "Service Fee (3%)",
+    "total": "Total",
+    "paymentMethod": "Payment Method",
+    "cashOnDelivery": "Cash on Delivery",
+    "confirmOrder": "Confirm Order",
+    "pleaseLogin": "Please login first",
+    "pleaseAddAddress": "Please select an address",
+    "orderSubmitted": "Order submitted successfully",
+    "orderError": "Error submitting order",
+    "unexpectedError": "An unexpected error occurred"
+  },
+  "shoes": {
+    "title": "Shoe Stores",
+    "noStores": "No shoe stores available",
+    "filters": {
+      "title": "Filter Shoes",
+      "sneakers": "Sneakers",
+      "athletic": "Athletic",
+      "casual": "Casual",
+      "formal": "Formal",
+      "boots": "Boots",
+      "mensShoes": "Men's Shoes",
+      "womensShoes": "Women's Shoes",
+      "kidsShoes": "Kids' Shoes",
+      "onSale": "On Sale",
+      "newArrivals": "New Arrivals",
+      "cancel": "Cancel",
+      "applyFilters": "Apply Filters"
+    },
+    "store": {
+      "rating": "Rating",
+      "location": "Location"
+    }
+  },
+  "login": {
+    "rememberMe": "Remember me",
+    "title": "Login",
+    "welcome": "Welcome to Mahallat",
+    "slogans": {
+      "professional": "Professional services for all your needs",
+      "trusted": "Trusted sellers and excellent service",
+      "fast": "Fast and secure shopping solutions"
+    },
+    "email": {
+      "label": "Email",
+      "hint": "Enter your email",
+      "error": "Please enter a valid email"
+    },
+    "password": {
+      "label": "Password",
+      "hint": "Enter your password",
+      "error": "Please enter your password"
+    },
+    "forgotPassword": "Forgot Password?",
+    "loginButton": "Login",
+    "noAccount": "Don't have an account?",
+    "signup": "Create New Account",
+    "googleLogin": "Login with Google",
+    "loading": "Loading...",
+    "success": "Login successful",
+    "errors": {
+      "loginFailed": "Login failed. Please check your credentials",
+      "unexpected": "An unexpected error occurred. Please try again"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "email": "Email",
+      "emailHint": "Enter your registered email",
+      "cancel": "Cancel",
+      "send": "Send",
+      "success": "Password reset link has been sent to your email",
+      "errors": {
+        "userNotFound": "No account found with this email",
+        "invalidEmail": "Invalid email address",
+        "default": "Error occurred while resetting password"
+      }
+    }
+  },
+  "googleSignup": {
+    "title": "Complete Registration",
+    "phoneLabel": "Phone Number",
+    "phoneHint": "Enter your phone number",
+    "phoneError": {
+      "required": "Please enter your phone number",
+      "invalid": "Phone number must be at least 10 digits"
+    },
+    "saveButton": "Save",
+    "errors": {
+      "updateFailed": "An error occurred while updating information"
+    }
+  },
+  "app": {
+    "title": "Mahallat",
+    "description": "Mahallat App - Integrated Shopping Platform"
+  },
+  "signup": {
+    "title": "Create Account",
+    "fullName": "Full Name",
+    "fullNameHint": "Enter your full name",
+    "email": "Email",
+    "emailHint": "Enter your email",
+    "password": "Password",
+    "passwordHint": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordHint": "Enter password confirmation",
+    "phone": "Phone Number",
+    "phoneHint": "Enter your phone number",
+    "city": "City",
+    "cityHint": "Enter your city",
+    "createAccount": "Create Account",
+    "loading": "Loading...",
+    "googleSignup": "Sign up with Google",
+    "googleLoading": "Signing up...",
+    "haveAccount": "Already have an account?",
+    "login": "Login",
+    "validation": {
+      "required": "This field is required",
+      "passwordRequired": "Please enter your password",
+      "passwordLength": "Password must be at least 6 characters",
+      "passwordsMismatch": "Passwords do not match",
+      "confirmPasswordRequired": "Please confirm your password"
+    },
+    "success": "Account created successfully! Please check your email to verify your account before logging in",
+    "resendVerification": "Resend",
+    "errors": {
+      "createAccount": "An error occurred while creating your account",
+      "googleSignup": "An error occurred while signing up with Google"
+    }
+  },
+  "splash": {
+    "categories": {
+      "bags": "Bags",
+      "kidsClothes": "Kids Clothes",
+      "kidsShoes": "Kids Shoes",
+      "healthCare": "Health & Care",
+      "mensShoes": "Men's Shoes",
+      "womensClothes": "Women's Clothes",
+      "womensShoes": "Women's Shoes",
+      "mensClothes": "Men's Clothes"
+    },
+    "slogans": {
+      "professional": "Professional Shopping Services",
+      "trusted": "Trusted Sellers",
+      "fast": "Fast and Efficient Shopping Solutions"
+    },
+    "buttons": {
+      "login": "Login",
+      "signup": "Create New Account"
+    }
+  },
+  "aboutAppSeller": {
+    "title": "About the App",
+    "greeting": "Dear Merchant,",
+    "sections": {
+      "subscriptionFees": {
+        "title": "Subscription Fees:",
+        "content": "Registration in the Mahallat app is free for the first six months, and after the free period ends, a monthly subscription fee of five dinars will be charged."
+      },
+      "cancelSubscription": {
+        "title": "Cancel Subscription:",
+        "content": "The merchant has the right to cancel their subscription at any time, without incurring any additional fees."
+      },
+      "imageQuality": {
+        "title": "Image Quality:",
+        "content": "Mahallat app management reserves the right to delete products with poor image quality. Therefore, we ask you to ensure that you include clear and appropriate images that comply with the app's standards and conditions."
+      }
+    },
+    "footer": {
+      "thankYou": "Thank you for your cooperation, and we are always happy to serve you.",
+      "signature": "Best regards,\nMahallat App Team"
+    }
+  },
+  "archivedProducts": {
+    "title": "Archived Products",
+    "noProducts": "No archived products",
+    "error": "Something went wrong",
+    "unarchive": {
+      "title": "Unarchive Product",
+      "message": "Are you sure you want to unarchive this product?",
+      "cancel": "Cancel",
+      "confirm": "Unarchive",
+      "success": "Product unarchived successfully",
+      "error": "Failed to unarchive product: {error}"
+    },
+    "collection": "Collection: {name}",
+    "price": "{price} JOD"
+  },
+  "clothesSeller": {
+    "title": "Manage Products",
+    "addProduct": "Add Product",
+    "editProduct": "Edit Product",
+    "productName": "Product Name",
+    "productNameHint": "Enter product name",
+    "price": "Price",
+    "priceHint": "Enter price",
+    "stock": "Stock",
+    "stockHint": "Enter stock quantity",
+    "description": "Description",
+    "descriptionHint": "Enter product description",
+    "addImage": "Add Image",
+    "imageSelected": "Image selected",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "noProducts": "No products found",
+    "startAdding": "Start by adding your first product",
+    "errors": {
+      "loadFailed": "Failed to load products",
+      "addFailed": "Failed to add product",
+      "updateFailed": "Failed to update product",
+      "deleteFailed": "Failed to delete product"
+    },
+    "success": {
+      "added": "Product added successfully",
+      "updated": "Product updated successfully",
+      "deleted": "Product deleted successfully"
+    }
+  },
+  "productsSellerHome": {
+    "title": "Manage Products",
+    "noProducts": "No products found",
+    "startAdding": "Start by adding your first product",
+    "addProduct": "Add Product",
+    "editProduct": "Edit Product",
+    "productName": "Product Name",
+    "productNameHint": "Enter product name",
+    "price": "Price",
+    "priceHint": "Enter price",
+    "stock": "Stock",
+    "stockHint": "Enter stock quantity",
+    "description": "Description",
+    "descriptionHint": "Enter product description",
+    "productType": "Product Type",
+    "typeInfo": "Type Info",
+    "color": "Color",
+    "size": "Size",
+    "addImage": "Add Image",
+    "imagesRemaining": "{count} remaining",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "archive": "Archive",
+    "archiveTitle": "Archive Product",
+    "archiveMessage": "Are you sure you want to archive this product?",
+    "deleteTitle": "Delete Product",
+    "deleteMessage": "Are you sure you want to delete this product?",
+    "success": {
+      "added": "Product added successfully",
+      "updated": "Product updated successfully",
+      "deleted": "Product deleted successfully",
+      "archived": "Product archived successfully"
+    },
+    "errors": {
+      "loadFailed": "Failed to load products",
+      "addFailed": "Failed to add product",
+      "updateFailed": "Failed to update product",
+      "deleteFailed": "Failed to delete product",
+      "archiveFailed": "Failed to archive product",
+      "imageRequired": "Please add at least one image"
+    },
+    "pendingReview": "Product submitted for review",
+    "publishDirectly": "Product published directly"
+  },
+  "productsSeller": {
+    "title": "Manage Products",
+    "addProduct": "Add Product",
+    "createStore": "Create Store",
+    "editProduct": "Edit Product",
+    "addstore": "Add Store",
+    "selectimage": "Please select an image",
+    "typeInfo": "Type Info",
+    "noProducts": "No products found",
+    "startAdding": "Start by adding your first product",
+    "mystore": "My Store",
+    "imageSelected": "Image selected",
+    "noStoreTypes": "No store types assigned to your account",
+    "creatingStore": "Creating Store",
+    "deleteProduct": "Delete Product",
+    "archiveProduct": "Archive Product",
+    "productType": "Product Type",
+    "customProductType": "Custom Product Type",
+    "typeInfo": "Type Info",
+    "productName": "Product Name",
+    "selectLocation": "Please select your location",
+    "storeName" : "Store Name",
+    "changeImage": "Change Image",
+    "changeLocation": "Change Location",
+    "price": "Price",
+    "stock": "Stock",
+    "color": "Color",
+    "size": "Size",
+    "description": "Description",
+    "addImages": "Add Images",
+    "remainingImages": "remaining",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "archive": "Archive",
+    "noProducts": "No Products Found",
+    "startAdding": "Start by adding your first product",
+    "manageProducts": "Manage Products",
+    "editStore": "Edit Store",
+    "emptyState": "No products found",
+    "retry": "Retry",
+    "errors": {
+      "loadFailed": "Failed to load products",
+      "addFailed": "Failed to add product",
+      "updateFailed": "Failed to update product",
+      "deleteFailed": "Failed to delete product",
+      "archiveFailed": "Failed to archive product",
+      "uploadFailed": "Failed to upload images",
+      "required": "Required",
+      "imageRequired": "Please select at least one image",
+      "locationRequired": "Please select store location"
+    },
+    "success": {
+      "added": "Product added successfully",
+      "updated": "Product updated successfully",
+      "deleted": "Product deleted successfully",
+      "archived": "Product archived successfully",
+      "submitted": "Product submitted for review"
+    },
+    "confirmations": {
+      "delete": "Are you sure you want to delete this product?",
+      "archive": "Are you sure you want to archive this product?"
+    },
+    "tabs": {
+      "categories": "Categories",
+      "stores": "Stores"
+    },
+    "store": {
+      "noStores": "No {categories} stores available",
+      "name": "Store Name",
+      "description": "Description",
+      "location": "Location",
+      "changeLocation": "Change Location",
+      "changeImage": "Change Image",
+      "imageSelected": "Image selected",
+      "createStore": "Create Store",
+      "editStore": "Edit Store",
+      "deleteStore": "Delete Store",
+      "deleteConfirmation": "Are you sure you want to delete this store? This action cannot be undone.",
+      "startAdding": "Start by adding your first store",
+      "errors": {
+        "updateLocation": "Error updating location: {error}",
+        "updateStore": "Error updating store: {error}",
+        "createStore": "Error creating store",
+        "deleteStore": "Error deleting store",
+        "loadStores": "Error loading stores"
+      },
+      "success": {
+        "created": "Store created successfully",
+        "updated": "Store updated successfully",
+        "deleted": "Store deleted successfully"
+      }
+    },
+    "navigation": {
+      "store": "Store",
+      "profile": "Profile"
+    },
+    "language": {
+      "switch": "Change Language",
+      "arabic": "العربية",
+      "english": "English"
+    },
+    "categories" : {
+      "Men Clothing" : "Men Clothing",
+      "Women Clothing" : "Women Clothing",
+      "Kids Clothing" : "Kids Clothing",
+      "Men Shoes" : "Men Shoes",
+      "Bags" : "Bags",
+      "Women Shoes" : "Women Shoes",
+      "Kids Shoes" : "Kids Shoes",
+      "Health And Beauty" : "Health & Beauty"
+    }
+  },
+  "sellerOrders": {
+    "title": "My Orders",
+    "loadingError": "Error loading orders",
+    "noOrders": "No orders at the moment",
+    "orderDate": "{day}/{month}/{year}",
+    "quantity": "Quantity: {quantity}",
+    "status": {
+      "pending": "Pending",
+      "accepted": "Accepted",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "sellerProfile": {
+    "title": "Profile",
+    "deleteAccount": "Delete Account",
+    "deleteAccountConfirmation": "Confirm Account Deletion",
+    "deleteAccountMessage": "Are you sure you want to delete your account? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleteError": "Error deleting account: {error}",
+    "logout": "Logout",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "accountType": "Account Type",
+    "loadingError": "Error loading data",
+    "noData": "No data available"
+  },
+  "storeStatus": {
+    "title": "Store Status",
+    "open": "Open",
+    "closed": "Closed",
+    "busy": "Busy"
+  },
+  "productTypes": {
+    "menClothing": {
+      "tShirts": "T-Shirts",
+      "shirts": "Shirts",
+      "pants": "Pants",
+      "jeans": "Jeans",
+      "jackets": "Jackets",
+      "suits": "Suits",
+      "other": "Other"
+    },
+    "menClothingInfo": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "sport": "Sport",
+      "business": "Business"
+    },
+    "womenClothing": {
+      "dresses": "Dresses",
+      "tops": "Tops",
+      "pants": "Pants",
+      "skirts": "Skirts",
+      "jackets": "Jackets",
+      "other": "Other"
+    },
+    "kidsClothing": {
+      "boys": "Boys",
+      "girls": "Girls",
+      "babies": "Babies",
+      "other": "Other"
+    },
+    "menShoes": {
+      "sneakers": "Sneakers",
+      "formal": "Formal",
+      "sports": "Sports",
+      "sandals": "Sandals",
+      "other": "Other"
+    },
+    "womenShoes": {
+      "heels": "Heels",
+      "flats": "Flats",
+      "sneakers": "Sneakers",
+      "sandals": "Sandals",
+      "other": "Other"
+    },
+    "kidsShoes": {
+      "boys": "Boys",
+      "girls": "Girls",
+      "babies": "Babies",
+      "other": "Other"
+    },
+    "healthAndBeauty": {
+      "skincare": "Skincare",
+      "makeup": "Makeup",
+      "haircare": "Haircare",
+      "fragrances": "Fragrances",
+      "other": "Other"
+    },
+    "bags": {
+      "backpacks": "Backpacks",
+      "womensBags": "Women's Bags",
+      "travelBags": "Travel Bags",
+      "other": "Other"
+    }
+  }
+}

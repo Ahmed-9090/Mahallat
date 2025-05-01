@@ -1,0 +1,186 @@
+{
+  "project_info": {
+    "project_number": "171231676222",
+    "project_id": "mehalat-store",
+    "storage_bucket": "mehalat-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171231676222:android:a7c502da319774eb218e6f",
+        "android_client_info": {
+          "package_name": "com.example.dash_mhalat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dwx_ynj6j7cQfneDUYw78veTpZwcyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171231676222-h9irgu5uj735gb5vrpk3938h5pqt98l5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mehalat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171231676222:android:e0063b68f04bcc8d218e6f",
+        "android_client_info": {
+          "package_name": "com.example.mahalattst2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171231676222-ceq8dvgk1o3hma949prnn7l1p28hcc1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mahalattst2",
+            "certificate_hash": "e9715e1d6c1ce35afd3941ac98a7285ac6b9132c"
+          }
+        },
+        {
+          "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dwx_ynj6j7cQfneDUYw78veTpZwcyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171231676222-h9irgu5uj735gb5vrpk3938h5pqt98l5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mehalat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171231676222:android:53438da65b3a07ba218e6f",
+        "android_client_info": {
+          "package_name": "com.example.mehalat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171231676222-67q1c1q8i0ac0dsb9u27o2p50joj3rrt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mehalat",
+            "certificate_hash": "8825444adf8cc845f9794896a99f84004bbc8ba4"
+          }
+        },
+        {
+          "client_id": "171231676222-vkce95s7jv5fa87gevb064jivo2bm8eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mehalat",
+            "certificate_hash": "e9715e1d6c1ce35afd3941ac98a7285ac6b9132c"
+          }
+        },
+        {
+          "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dwx_ynj6j7cQfneDUYw78veTpZwcyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171231676222-h9irgu5uj735gb5vrpk3938h5pqt98l5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mehalat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171231676222:android:76832dad0f2f459b218e6f",
+        "android_client_info": {
+          "package_name": "com.example.mhalat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171231676222-8j6m07ftapj5ad44l59sudo53gom7fm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mhalat",
+            "certificate_hash": "e9715e1d6c1ce35afd3941ac98a7285ac6b9132c"
+          }
+        },
+        {
+          "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN8dwx_ynj6j7cQfneDUYw78veTpZwcyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171231676222-r4ioai3900pb3r03a71bo9g64i8brme8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171231676222-h9irgu5uj735gb5vrpk3938h5pqt98l5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mehalat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
