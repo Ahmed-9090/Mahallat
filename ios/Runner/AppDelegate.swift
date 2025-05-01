@@ -1,6 +1,5 @@
 import GoogleMaps
 import Flutter
-
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
   override func application(
