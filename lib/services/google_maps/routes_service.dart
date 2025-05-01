@@ -5,7 +5,8 @@ import '../../google maps/models/routes models/Locationinfomodel.dart';
 import '../../google maps/models/routes_model.dart';
 
 class RoutesService {
-  final String baseUrl = "https://routes.googleapis.com/directions/v2:computeRoutes";
+  final String baseUrl =
+      "https://routes.googleapis.com/directions/v2:computeRoutes";
   late final String apiKey;
 
   RoutesService() {
@@ -15,13 +16,17 @@ class RoutesService {
     }
   }
 
-  Future<RoutesModel> fetchRoutes({required Locationinfomodel origin, required Locationinfomodel destination}) async {
+  Future<RoutesModel> fetchRoutes({
+    required Locationinfomodel origin,
+    required Locationinfomodel destination,
+  }) async {
     Uri url = Uri.parse(baseUrl);
 
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline'
+      'X-Goog-FieldMask':
+          'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline',
     };
 
     Map<String, dynamic> body = {
@@ -33,15 +38,18 @@ class RoutesService {
       "routeModifiers": {
         "avoidTolls": false,
         "avoidHighways": false,
-        "avoidFerries": false
+        "avoidFerries": false,
       },
       "languageCode": "en-US",
-      "units": "IMPERIAL"
+      "units": "IMPERIAL",
     };
 
-
     try {
-      var response = await http.post(url, headers: headers, body: jsonEncode(body));
+      var response = await http.post(
+        url,
+        headers: headers,
+        body: jsonEncode(body),
+      );
 
       // Log the API response for debugging
       print("Directions API Response Status Code: ${response.statusCode}");
@@ -57,7 +65,9 @@ class RoutesService {
           throw Exception("Invalid response data: No routes found.");
         }
       } else {
-        throw Exception("Error fetching routes: ${response.statusCode} - ${response.body}");
+        throw Exception(
+          "Error fetching routes: ${response.statusCode} - ${response.body}",
+        );
       }
     } catch (e) {
       throw Exception("Failed to fetch routes: $e");
