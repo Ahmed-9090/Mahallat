@@ -17,6 +17,7 @@ class GoogleMapsPlacesService {
     }
   }
 
+
   Future<List<AutocompleteModel>> getAutocomplete({required String input, required String sessionToken}) async {
     try {
       var response = await http.get(
