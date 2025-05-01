@@ -65,11 +65,11 @@ class _SellerOrdersState extends State<SellerOrders> {
         ),
         child: StreamBuilder<QuerySnapshot>(
           stream:
-              _firestore
-                  .collection('Orders')
-                  .where('sellerId', isEqualTo: _auth.currentUser?.uid)
-                  .orderBy('orderDate', descending: true)
-                  .snapshots(),
+          _firestore
+              .collection('Orders')
+              .where('sellerId', isEqualTo: _auth.currentUser?.uid)
+              .orderBy('orderDate', descending: true)
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(
@@ -126,8 +126,32 @@ class _SellerOrdersState extends State<SellerOrders> {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        // Store Name
-                        // Removed store name display
+                        // Size Details
+                        if (data['sizeDetails'] != null &&
+                            data['sizeDetails'].toString().isNotEmpty)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                languageProvider.translate(
+                                  'sellerOrders.sizeDetails',
+                                ),
+                                style: GoogleFonts.cairo(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color(0xff503636),
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                data['sizeDetails'].toString(),
+                                style: GoogleFonts.cairo(
+                                  fontSize: 14,
+                                  color: const Color(0xff503636),
+                                ),
+                              ),
+                            ],
+                          ),
                         const SizedBox(height: 16),
                         // Order Items
                         ListView.builder(
@@ -136,7 +160,7 @@ class _SellerOrdersState extends State<SellerOrders> {
                           itemCount: items.length,
                           itemBuilder: (context, itemIndex) {
                             final item =
-                                items[itemIndex] as Map<String, dynamic>;
+                            items[itemIndex] as Map<String, dynamic>;
                             return Container(
                               margin: const EdgeInsets.only(bottom: 16),
                               child: Column(
@@ -152,21 +176,21 @@ class _SellerOrdersState extends State<SellerOrders> {
                                       fit: BoxFit.cover,
                                       placeholder:
                                           (context, url) => Container(
-                                            width: double.infinity,
-                                            height: 200,
-                                            color: Colors.grey[200],
-                                            child: const Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            ),
-                                          ),
+                                        width: double.infinity,
+                                        height: 200,
+                                        color: Colors.grey[200],
+                                        child: const Center(
+                                          child:
+                                          CircularProgressIndicator(),
+                                        ),
+                                      ),
                                       errorWidget:
                                           (context, url, error) => Container(
-                                            width: double.infinity,
-                                            height: 200,
-                                            color: Colors.grey[200],
-                                            child: const Icon(Icons.error),
-                                          ),
+                                        width: double.infinity,
+                                        height: 200,
+                                        color: Colors.grey[200],
+                                        child: const Icon(Icons.error),
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(height: 12),
@@ -184,15 +208,15 @@ class _SellerOrdersState extends State<SellerOrders> {
                                   const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
                                         languageProvider
                                             .translate('sellerOrders.quantity')
                                             .replaceAll(
-                                              '{quantity}',
-                                              item['quantity'].toString(),
-                                            ),
+                                          '{quantity}',
+                                          item['quantity'].toString(),
+                                        ),
                                         style: GoogleFonts.cairo(
                                           fontSize: 14,
                                           color: const Color(0xff503636),
@@ -200,11 +224,86 @@ class _SellerOrdersState extends State<SellerOrders> {
                                       ),
                                     ],
                                   ),
+                                  // Show sizeDetails if exists for this item, directly under quantity
+                                  if (item['sizeDetails'] != null &&
+                                      item['sizeDetails'].toString().isNotEmpty)
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 4.0,
+                                        bottom: 4.0,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            languageProvider.translate(
+                                              'sellerOrders.sizeDetails',
+                                            ),
+                                            style: GoogleFonts.cairo(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: const Color(0xff503636),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 6),
+                                          Flexible(
+                                            child: Text(
+                                              item['sizeDetails'].toString(),
+                                              style: GoogleFonts.cairo(
+                                                fontSize: 14,
+                                                color: const Color(0xff503636),
+                                              ),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                 ],
                               ),
                             );
                           },
                         ),
+                        // Show sizeDetails at the bottom of the card with translation and styling
+                        if ((data['sizeDetails'] ??
+                            (data['customerInfo']?['sizeDetails'])) !=
+                            null &&
+                            (data['sizeDetails'] ??
+                                (data['customerInfo']?['sizeDetails']))
+                                .toString()
+                                .isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  languageProvider.translate(
+                                    'sellerOrders.sizeDetails',
+                                  ),
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color(0xff503636),
+                                  ),
+                                ),
+                                const SizedBox(width: 6),
+                                Flexible(
+                                  child: Text(
+                                    (data['sizeDetails'] ??
+                                        (data['customerInfo']?['sizeDetails']))
+                                        .toString(),
+                                    style: GoogleFonts.cairo(
+                                      fontSize: 14,
+                                      color: const Color(0xff503636),
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                       ],
                     ),
                   ),

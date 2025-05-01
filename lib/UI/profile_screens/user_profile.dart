@@ -29,6 +29,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   String? uid = FirebaseAuth.instance.currentUser?.uid;
   final ImagePicker _picker = ImagePicker();
   bool isUploadingImage = false;
+  DateTime? _lastBackPressTime;
 
   Future<UserModel?> _fetchUserData() async {
     if (uid == null) return null;
@@ -174,419 +175,454 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     final width = size.width;
     final height = size.height;
 
-    return Scaffold(
-      body: Container(
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xffF1E4CF), Color(0xffF1E4CF), Colors.white],
-            stops: [0.0, 0.5, 1.0],
-          ),
-        ),
-        child: FutureBuilder<UserModel?>(
-          future: _fetchUserData(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError || !snapshot.hasData) {
-              return Center(
-                child: Text(
-                  languageProvider.translate('profile.loadingError'),
-                  style: GoogleFonts.cairo(fontSize: width * 0.04),
+    return WillPopScope(
+      onWillPop: () async {
+        if (_lastBackPressTime == null ||
+            DateTime.now().difference(_lastBackPressTime!) >
+                const Duration(seconds: 2)) {
+          _lastBackPressTime = DateTime.now();
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              width: width * 0.5,
+              content: Text(
+                languageProvider.translate('home.pressAgainToExit'),
+                style: GoogleFonts.cairo(
+                  fontSize: width * 0.03,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
                 ),
-              );
-            }
+                textAlign: TextAlign.center,
+              ),
+              backgroundColor: const Color(0xffF1E4CF),
+              duration: const Duration(seconds: 2),
+              behavior: SnackBarBehavior.floating,
+              padding: EdgeInsets.symmetric(
+                horizontal: width * 0.02,
+                vertical: height * 0.015,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(width * 0.1),
+              ),
+            ),
+          );
+          return false;
+        }
+        return true;
+      },
+      child: Scaffold(
+        body: Container(
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xffF1E4CF), Color(0xffF1E4CF), Colors.white],
+              stops: [0.0, 0.5, 1.0],
+            ),
+          ),
+          child: FutureBuilder<UserModel?>(
+            future: _fetchUserData(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError || !snapshot.hasData) {
+                return Center(
+                  child: Text(
+                    languageProvider.translate('profile.loadingError'),
+                    style: GoogleFonts.cairo(fontSize: width * 0.04),
+                  ),
+                );
+              }
 
-            UserModel user = snapshot.data!;
+              UserModel user = snapshot.data!;
 
-            return SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // App Bar
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.04,
-                        vertical: height * 0.01,
-                      ),
-                      decoration: const BoxDecoration(color: Color(0xffF1E4CF)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            languageProvider.translate('profile.title'),
-                            style: GoogleFonts.cairo(
-                              fontSize: width * 0.05,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Profile Image
-                    Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: height * 0.02),
-                        child: Stack(
+              return SafeArea(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // App Bar
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: width * 0.04,
+                          vertical: height * 0.01,
+                        ),
+                        decoration: const BoxDecoration(color: Color(0xffF1E4CF)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                if (user.profileImageUrl != null &&
-                                    user.profileImageUrl!.isNotEmpty) {
-                                  _showFullImage(user.profileImageUrl!);
-                                }
-                              },
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  CircleAvatar(
-                                    radius: width * 0.12,
-                                    backgroundColor: Colors.grey[200],
-                                    backgroundImage:
-                                        user.profileImageUrl != null &&
-                                                user.profileImageUrl!.isNotEmpty
-                                            ? NetworkImage(
-                                              user.profileImageUrl!,
-                                            )
-                                            : null,
-                                    child:
-                                        user.profileImageUrl == null ||
-                                                user.profileImageUrl!.isEmpty
-                                            ? Icon(
-                                              Icons.person,
-                                              size: width * 0.12,
-                                              color: Colors.grey[400],
-                                            )
-                                            : null,
-                                  ),
-                                  if (isUploadingImage)
-                                    SizedBox(
-                                      width: width * 0.24,
-                                      height: width * 0.24,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                              Colors.orange,
-                                            ),
-                                        strokeWidth: 3,
-                                      ),
-                                    ),
-                                ],
+                            Text(
+                              languageProvider.translate('profile.title'),
+                              style: GoogleFonts.cairo(
+                                fontSize: width * 0.05,
+                                fontWeight: FontWeight.bold,
                               ),
+                              textAlign: TextAlign.center,
                             ),
-                            if (!isUploadingImage &&
-                                (user.profileImageUrl == null ||
-                                    user.profileImageUrl!.isEmpty))
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.2),
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2),
-                                      ),
-                                    ],
-                                  ),
-                                  child: IconButton(
-                                    icon: Icon(
-                                      Icons.camera_alt,
-                                      color: Colors.white,
-                                      size: width * 0.05,
-                                    ),
-                                    onPressed: _uploadImage,
-                                    constraints: BoxConstraints(
-                                      minWidth: width * 0.08,
-                                      minHeight: width * 0.08,
-                                    ),
-                                    padding: EdgeInsets.zero,
-                                  ),
-                                ),
-                              ),
                           ],
                         ),
                       ),
-                    ),
 
-                    // Account Section
-                    Padding(
-                      padding: EdgeInsets.all(width * 0.04),
-                      child: Column(
-                        crossAxisAlignment:
-                            isArabic
-                                ? CrossAxisAlignment.end
-                                : CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            alignment:
-                                isArabic
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                            child: Text(
-                              languageProvider.translate('profile.account'),
-                              style: GoogleFonts.cairo(
-                                fontSize: width * 0.06,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: height * 0.02),
-
-                          // Profile Settings
-                          Container(
-                            alignment:
-                                isArabic
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(width * 0.03),
-                            ),
-                            margin: EdgeInsets.symmetric(
-                              vertical: height * 0.01,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: width * 0.02,
-                            ),
-                            child: _buildSettingsItem(
-                              icon: Icons.person_outline,
-                              iconColor: Colors.orange,
-                              title: 'profile.profileSettings',
-                              onTap: () async {
-                                final result = await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder:
-                                        (context) => const EditUserProfile(),
-                                  ),
-                                );
-                                if (result != null && mounted) {
-                                  setState(() {});
-                                }
-                              },
-                            ),
-                          ),
-
-                          // Profile Information
-                          _buildSettingsItem(
-                            icon: Icons.info_outline,
-                            iconColor: Colors.orange,
-                            title: 'profile.profileInfo',
-                            onTap:
-                                () => _showProfileInformationDialog(
-                                  context,
-                                  user,
-                                ),
-                          ),
-
-                          // My Orders
-                          _buildSettingsItem(
-                            icon: Icons.history,
-                            iconColor: Colors.orange,
-                            title: 'profile.myOrders',
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const MyOeders(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          // Manage addresses
-                          _buildSettingsItem(
-                            icon: Icons.location_on_outlined,
-                            iconColor: Colors.orange,
-                            title: 'profile.addressManagement',
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const AdressManagment(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          // Become a Seller
-                          _buildSettingsItem(
-                            icon: Icons.store_outlined,
-                            iconColor: Colors.orange,
-                            title: 'profile.becomeSeller',
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const tager(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          // Change Language
-                          _buildLanguageItem(onTap: () {}),
-
-                          SizedBox(height: height * 0.02),
-
-                          // About & support Section
-                          Container(
-                            width: double.infinity,
-                            alignment:
-                                isArabic
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                            margin: EdgeInsets.only(top: height * 0.02),
-                            padding: EdgeInsets.all(width * 0.03),
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(width * 0.03),
-                            ),
-                            child: Text(
-                              languageProvider.translate(
-                                'profile.aboutAndSupport',
-                              ),
-                              style: GoogleFonts.cairo(
-                                fontSize: width * 0.06,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: height * 0.02),
-
-                          // Help Center
-                          _buildSettingsItem(
-                            icon: Icons.help_outline,
-                            iconColor: Colors.grey,
-                            title: 'profile.helpCenter',
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Shakawy(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          // Social Media Section
-                          Container(
-                            width: double.infinity,
-                            alignment:
-                                isArabic
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
-                            margin: EdgeInsets.only(top: height * 0.02),
-                            padding: EdgeInsets.all(width * 0.03),
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(width * 0.03),
-                            ),
-                            child: Text(
-                              languageProvider.translate('profile.followUs'),
-                              style: GoogleFonts.cairo(
-                                fontSize: width * 0.06,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: height * 0.02),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                      // Profile Image
+                      Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: height * 0.02),
+                          child: Stack(
                             children: [
-                              InkWell(
-                                onTap: () async {
-                                  await _launchSocial(
-                                    'https://www.facebook.com/share/1Aud2q44Wg/',
-                                    'https://www.facebook.com/share/16aHX3Wc7B/',
-                                  );
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.all(width * 0.03),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue[800],
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.1),
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Icon(
-                                    Icons.facebook,
-                                    color: Colors.white,
-                                    size: width * 0.07,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: width * 0.05),
-                              InkWell(
-                                onTap: () async {
-                                  if (await _isInstagramInstalled()) {
-                                    await launchUrl(
-                                      Uri.parse(
-                                        'instagram://user?username=mahallat.jo',
-                                      ),
-                                      mode: LaunchMode.externalApplication,
-                                    );
-                                  } else {
-                                    await launchUrl(
-                                      Uri.parse(
-                                        'https://www.instagram.com/mahallat.jo',
-                                      ),
-                                      mode: LaunchMode.externalApplication,
-                                    );
+                              GestureDetector(
+                                onTap: () {
+                                  if (user.profileImageUrl != null &&
+                                      user.profileImageUrl!.isNotEmpty) {
+                                    _showFullImage(user.profileImageUrl!);
                                   }
                                 },
-                                child: Container(
-                                  padding: EdgeInsets.all(width * 0.03),
-                                  decoration: BoxDecoration(
-                                    color: Colors.pink[400],
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.1),
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: width * 0.12,
+                                      backgroundColor: Colors.grey[200],
+                                      backgroundImage:
+                                          user.profileImageUrl != null &&
+                                                  user.profileImageUrl!.isNotEmpty
+                                              ? NetworkImage(
+                                                user.profileImageUrl!,
+                                              )
+                                              : null,
+                                      child:
+                                          user.profileImageUrl == null ||
+                                                  user.profileImageUrl!.isEmpty
+                                              ? Icon(
+                                                Icons.person,
+                                                size: width * 0.12,
+                                                color: Colors.grey[400],
+                                              )
+                                              : null,
+                                    ),
+                                    if (isUploadingImage)
+                                      SizedBox(
+                                        width: width * 0.24,
+                                        height: width * 0.24,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                Colors.orange,
+                                              ),
+                                          strokeWidth: 3,
+                                        ),
                                       ),
-                                    ],
-                                  ),
-                                  child: Image.asset(
-                                    'assets/insta_logo.png',
-                                    width: width * 0.07,
-                                    height: width * 0.07,
-                                  ),
+                                  ],
                                 ),
                               ),
+                              if (!isUploadingImage &&
+                                  (user.profileImageUrl == null ||
+                                      user.profileImageUrl!.isEmpty))
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.2),
+                                          blurRadius: 5,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: IconButton(
+                                      icon: Icon(
+                                        Icons.camera_alt,
+                                        color: Colors.white,
+                                        size: width * 0.05,
+                                      ),
+                                      onPressed: _uploadImage,
+                                      constraints: BoxConstraints(
+                                        minWidth: width * 0.08,
+                                        minHeight: width * 0.08,
+                                      ),
+                                      padding: EdgeInsets.zero,
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
-                          SizedBox(height: height * 0.03),
-
-                          // Logout
-                          _buildLogoutButton(
-                            onTap: () => _showLogoutDialog(context),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
+
+                      // Account Section
+                      Padding(
+                        padding: EdgeInsets.all(width * 0.04),
+                        child: Column(
+                          crossAxisAlignment:
+                              isArabic
+                                  ? CrossAxisAlignment.end
+                                  : CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              alignment:
+                                  isArabic
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                              child: Text(
+                                languageProvider.translate('profile.account'),
+                                style: GoogleFonts.cairo(
+                                  fontSize: width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: height * 0.02),
+
+                            // Profile Settings
+                            Container(
+                              alignment:
+                                  isArabic
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(width * 0.03),
+                              ),
+                              margin: EdgeInsets.symmetric(
+                                vertical: height * 0.01,
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: width * 0.02,
+                              ),
+                              child: _buildSettingsItem(
+                                icon: Icons.person_outline,
+                                iconColor: Colors.orange,
+                                title: 'profile.profileSettings',
+                                onTap: () async {
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => const EditUserProfile(),
+                                    ),
+                                  );
+                                  if (result != null && mounted) {
+                                    setState(() {});
+                                  }
+                                },
+                              ),
+                            ),
+
+                            // Profile Information
+                            _buildSettingsItem(
+                              icon: Icons.info_outline,
+                              iconColor: Colors.orange,
+                              title: 'profile.profileInfo',
+                              onTap:
+                                  () => _showProfileInformationDialog(
+                                    context,
+                                    user,
+                                  ),
+                            ),
+
+                            // My Orders
+                            _buildSettingsItem(
+                              icon: Icons.history,
+                              iconColor: Colors.orange,
+                              title: 'profile.myOrders',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const MyOeders(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // Manage addresses
+                            _buildSettingsItem(
+                              icon: Icons.location_on_outlined,
+                              iconColor: Colors.orange,
+                              title: 'profile.addressManagement',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AdressManagment(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // Become a Seller
+                            _buildSettingsItem(
+                              icon: Icons.store_outlined,
+                              iconColor: Colors.orange,
+                              title: 'profile.becomeSeller',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const tager(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // Change Language
+                            _buildLanguageItem(onTap: () {}),
+
+                            SizedBox(height: height * 0.02),
+
+                            // About & support Section
+                            Container(
+                              width: double.infinity,
+                              alignment:
+                                  isArabic
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                              margin: EdgeInsets.only(top: height * 0.02),
+                              padding: EdgeInsets.all(width * 0.03),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(width * 0.03),
+                              ),
+                              child: Text(
+                                languageProvider.translate(
+                                  'profile.aboutAndSupport',
+                                ),
+                                style: GoogleFonts.cairo(
+                                  fontSize: width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: height * 0.02),
+
+                            // Help Center
+                            _buildSettingsItem(
+                              icon: Icons.help_outline,
+                              iconColor: Colors.grey,
+                              title: 'profile.helpCenter',
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Shakawy(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // Social Media Section
+                            Container(
+                              width: double.infinity,
+                              alignment:
+                                  isArabic
+                                      ? Alignment.centerRight
+                                      : Alignment.centerLeft,
+                              margin: EdgeInsets.only(top: height * 0.02),
+                              padding: EdgeInsets.all(width * 0.03),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(width * 0.03),
+                              ),
+                              child: Text(
+                                languageProvider.translate('profile.followUs'),
+                                style: GoogleFonts.cairo(
+                                  fontSize: width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: height * 0.02),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () async {
+                                    await _launchSocial(
+                                      'https://www.facebook.com/share/1Aud2q44Wg/',
+                                      'https://www.facebook.com/share/16aHX3Wc7B/',
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(width * 0.03),
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue[800],
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.1),
+                                          blurRadius: 5,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Icon(
+                                      Icons.facebook,
+                                      color: Colors.white,
+                                      size: width * 0.07,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: width * 0.05),
+                                InkWell(
+                                  onTap: () async {
+                                    if (await _isInstagramInstalled()) {
+                                      await launchUrl(
+                                        Uri.parse(
+                                          'instagram://user?username=mahallat.jo',
+                                        ),
+                                        mode: LaunchMode.externalApplication,
+                                      );
+                                    } else {
+                                      await launchUrl(
+                                        Uri.parse(
+                                          'https://www.instagram.com/mahallat.jo',
+                                        ),
+                                        mode: LaunchMode.externalApplication,
+                                      );
+                                    }
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(width * 0.03),
+                                    decoration: BoxDecoration(
+                                      color: Colors.pink[400],
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.1),
+                                          blurRadius: 5,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Image.asset(
+                                      'assets/insta_logo.png',
+                                      width: width * 0.07,
+                                      height: width * 0.07,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: height * 0.03),
+
+                            // Logout
+                            _buildLogoutButton(
+                              onTap: () => _showLogoutDialog(context),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

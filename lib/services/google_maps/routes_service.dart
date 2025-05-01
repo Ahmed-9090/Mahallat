@@ -18,7 +18,7 @@ class RoutesService {
 
   Future<RoutesModel> fetchRoutes({
     required Locationinfomodel origin,
-    required Locationinfomodel destination,
+    required Locationinfomodel destination
   }) async {
     Uri url = Uri.parse(baseUrl);
 
